@@ -1,0 +1,136 @@
+let board = document.getElementById('grid');
+board.style.width = innerHeight*0.9;
+board.style.height = innerHeight*0.9;
+
+let bomb_number = 40;
+let row = 20, col = 20;
+let tile_width = innerHeight * 0.9 * (1/row);
+
+function set_bombs(){
+    let locations = [];
+    for(var a = 0; a < row; a++){
+        for(var b = 0; b < col; b++){
+            locations.push([a,b])
+        }
+    }
+    for(var x = 0; x < bomb_number; x++){
+        let a = Math.floor(Math.random()*(locations.length-1))
+        let x = locations[a][0], y = locations[a][1];
+        locations.splice(a,1)
+        let bomb_tile = document.getElementById(x + ',' + y)
+        bomb_tile.setAttribute('class', "bomb")
+        bomb_tile.addEventListener('click', function(){
+            if(bomb_tile.getAttribute('class') == "bomb"){
+                detonate_bombs()
+                alert('game_over')
+            }
+        })
+        bomb_tile.addEventListener('contextmenu', function(){
+            if(bomb_tile.getAttribute('class') == "bomb")
+                bomb_tile.setAttribute('class', "flagged")
+            else if(bomb_tile.getAttribute('class') == "flagged")
+                bomb_tile.setAttribute('class', "bomb")
+        })
+    }
+}
+
+function detonate_bombs(){
+    for(var a = 0; a < row; a++){
+        for(var b = 0; b < col; b++){
+            let tile = document.getElementById(a + ',' + b);
+            if(tile.getAttribute('class') == "bomb")
+                tile.setAttribute('class', "detonated")
+        }
+    }
+}
+
+function count_neighboring_bombs(i,j){
+    //(-1,-1),(0,-1),(1,-1),(1,0),(1,1),(0,1),(-1,1),(-1,0)
+    //x: -1,0,1,1,1,0,-1,-1
+    //y: -1,-1,-1,0,1,1,1,0
+    let bombs = 0;
+    for(let a = 0; a < 8; a++){
+        let dely = (a < 3?-1:(a > 3 && a < 7?1:0))
+        let delx = (a > 1 && a < 5?1:(a > 5 || !a?-1:0))
+        if(i + dely > -1 && i + dely < row && j + delx > -1 && j + delx < col){
+            let neighbor = document.getElementById((i+dely)+','+(j+delx))
+            if(neighbor.getAttribute('class') != undefined && neighbor.getAttribute('class') == "bomb")
+                bombs ++;
+        }
+    }
+    return bombs;
+}
+
+function collect_tiles(i,j){
+    //Approach: DFS
+    let classNames = ['zero','one','two','three','four','five','six']
+    let stack = [];
+    stack.push([i,j])
+    while(stack.length > 0){
+        let curr = stack[stack.length-1];
+        let tile = document.getElementById(curr[0] + ',' + curr[1]);
+        if(tile.getAttribute('class') == "unchecked"){
+            tile.setAttribute('class', classNames[tile.innerHTML] + '_check')
+            if(tile.innerHTML == 0){
+                for(let a = 0; a < 8; a++){
+                    let dely = (a < 3?-1:(a > 3 && a < 7?1:0))
+                    let delx = (a > 1 && a < 5?1:(a > 5 || !a?-1:0))
+                    if(curr[0] + dely > -1 && curr[0] + dely < row && curr[1] + delx > -1 && curr[1] + delx < col){
+                        stack.push([curr[0]+dely,curr[1]+delx])
+                    }
+                }
+            }
+        }
+        else stack.pop();
+    }
+}
+
+function set_tiles(){
+    let classNames = ['zero','one','two','three','four','five','six']
+    for(let i = 0; i < row; i++){
+        for(let j = 0; j < col; j++){
+            let tile = document.getElementById(i + ',' + j)
+            if(tile.getAttribute('class') == undefined){
+                let a = count_neighboring_bombs(i,j)
+                tile.innerHTML = a;
+                tile.setAttribute('class', "unchecked")
+                tile.addEventListener('click', function(){
+                    if(tile.getAttribute('class') != undefined && tile.getAttribute('class') == "unchecked"){
+                        if(tile.innerHTML == 0){
+                            collect_tiles(i,j);
+                        }
+                        else tile.setAttribute('class', classNames[a]+"_check");
+                    }
+                })
+                tile.addEventListener('contextmenu', function(){
+                    if(tile.getAttribute('class') == "unchecked")
+                        tile.setAttribute('class', "flagged")
+                    else if(tile.getAttribute('class') == "flagged")
+                        tile.setAttribute('class', "unchecked")
+                })
+            }
+        }
+    }
+}
+
+function add_empty_tile(i,j){
+    let tile = document.createElement('div')
+    tile.style.top = i * tile_width;
+    tile.style.left = j * tile_width;
+    tile.style.width = tile_width;
+    tile.style.height = tile_width;
+    tile.style.border = "solid black 1px"
+    tile.setAttribute('id', i + ',' + j)
+    board.appendChild(tile);
+}
+
+function initialize_grid(){
+    for(var a = 0; a < row; a++){
+        for(var b = 0; b <col; b++){
+            add_empty_tile(a,b)
+        }
+    }
+}
+initialize_grid()
+set_bombs()
+set_tiles()

@@ -1,0 +1,79 @@
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: sans-serif;
+    color: grey;
+}
+.navbar{
+    position: relative;
+    display: flex;
+    font-size: 200%;
+    justify-content: space-around;
+    padding: 1em;
+    width: 100%;
+    background: navy;
+    color: white;
+}
+#grid{
+    position: relative;
+    display: flex;
+    flex-wrap: wrap;
+    background: lightgrey;
+    margin: auto;
+    justify-content: space-around;
+}
+.safe{
+    text-align: center;
+    background: blue;
+}
+.unchecked{
+    border-style: solid;
+    border-width: 10px;
+    background: lightgrey;
+    color: lightgrey;
+}
+.zero_check{
+    text-align: center;
+    color: darkgray;
+    background: darkgrey;
+    border: 10px solid black;
+}
+.one_check{
+    font-family: Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif;
+    display: table-cell;
+    vertical-align:auto;
+    text-align: center;
+    background: grey;
+    color: blue;
+}
+.two_check{
+    font-family: Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif;
+    display: table-cell;
+    vertical-align:auto;
+    text-align: center;
+    background: grey;
+    color: green;
+}
+.three_check{
+    font-family: Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif;
+    display: table-cell;
+    vertical-align:auto;
+    text-align: center;
+    background: grey;
+    color: red;
+}
+.four_check{
+    font-family: Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif;
+    display: table-cell;
+    vertical-align:auto;
+    text-align: center;
+    background: grey;
+    color: purple;
+}
+.flagged{
+    background: blue;
+}
+.detonated{
+    background: red;
+}
