@@ -4,10 +4,23 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>MineSweeper</title>
     <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="https://pro.fontawesome.com/releases/v5.10.0/css/all.css" integrity="sha384-AYmEC3Yw5cVb3ZcuHtOA93w35dYTsvhLPVnYs9eStHfGJvOvKxVfELGroGkvsg+p" crossorigin="anonymous"/>
 </head>
 <body oncontextmenu="return false">
     <div class="navbar">
-        <div id="title">MineSweeper</div>
+        <div class="github">
+            <a style="color: white" class = "fab fa-github-square" href="https://github.com/Mattli8312"></a>
+        </div>
+        <div id="center_nav">
+            <div id="bomb_count" class = "fas fa-bomb">: 10</div>
+            <div id="face" class = "fas fa-grin-alt"></div>
+            <div id ="clock" class = "far fa-clock">: 0</div>
+        </div>
+        <div id="options" onclick = "console.log(1)">
+            <div class="line"></div>
+            <div class="line"></div>
+            <div class="line"></div>
+        </div>
     </div>
     <div id="grid"></div>
     <script src="main.js"></script>

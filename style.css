@@ -9,11 +9,32 @@
     position: relative;
     display: flex;
     font-size: 200%;
-    justify-content: space-around;
-    padding: 1em;
+    justify-content: space-between;
+    align-items: center;
+    padding: 0.5em;
     width: 100%;
     background: navy;
+}
+#center_nav{
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+}
+#bomb_count, #clock{
+    background: black;
+    border-radius: 5px;
     color: white;
+    padding: 0.5em 1em 0.5em 1em;
+}
+#face{
+    color: yellow;
+    padding: 0.5em;
+}
+.line{
+    background:white;
+    width: 1em;
+    height: 0.1em;
+    margin: 0.1em;
 }
 #grid{
     position: relative;
@@ -27,19 +48,13 @@
     text-align: center;
     background: blue;
 }
-.unchecked{
-    border-style: solid;
-    border-width: 10px;
-    background: lightgrey;
-    color: lightgrey;
-}
-.zero_check{
+.check_0{
     text-align: center;
     color: darkgray;
     background: darkgrey;
     border: 10px solid black;
 }
-.one_check{
+.check_1{
     font-family: Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif;
     display: table-cell;
     vertical-align:auto;
@@ -47,7 +62,7 @@
     background: grey;
     color: blue;
 }
-.two_check{
+.check_2{
     font-family: Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif;
     display: table-cell;
     vertical-align:auto;
@@ -55,7 +70,7 @@
     background: grey;
     color: green;
 }
-.three_check{
+.check_3{
     font-family: Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif;
     display: table-cell;
     vertical-align:auto;
@@ -63,7 +78,7 @@
     background: grey;
     color: red;
 }
-.four_check{
+.check_4{
     font-family: Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif;
     display: table-cell;
     vertical-align:auto;
@@ -71,9 +86,6 @@
     background: grey;
     color: purple;
 }
-.flagged{
-    background: blue;
-}
 .detonated{
-    background: red;
+    background: grey;
 }
