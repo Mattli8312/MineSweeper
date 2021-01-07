@@ -2,7 +2,7 @@
     margin: 0;
     padding: 0;
     box-sizing: border-box;
-    font-family: sans-serif;
+    font-family: Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif;
     color: grey;
 }
 .navbar{
@@ -29,6 +29,9 @@
 #face{
     color: yellow;
     padding: 0.5em;
+    margin: 0 0.5em 0 0.5em;
+    background: grey;
+    border-radius: 5px;
 }
 .line{
     background:white;
@@ -44,9 +47,30 @@
     margin: auto;
     justify-content: space-around;
 }
-.safe{
-    text-align: center;
-    background: blue;
+#options{
+    color: white;
+}
+#options:hover{
+    color: red;
+}
+#options ul{
+    position: absolute;
+    background: navy;
+    list-style: none;
+    left: 0;
+    z-index: 5;
+}
+#options li{
+    border-radius: 0.5em;
+    padding: 0.5em;
+    color: white;
+    margin: 0.5em;
+    font-size: 0.7em;
+    transition: all 0.2s ease-in;
+}
+#options li:hover{
+    background: white;
+    color: black;
 }
 .check_0{
     text-align: center;
@@ -59,7 +83,7 @@
     display: table-cell;
     vertical-align:auto;
     text-align: center;
-    background: grey;
+    background: darkgray;
     color: blue;
 }
 .check_2{
@@ -67,7 +91,7 @@
     display: table-cell;
     vertical-align:auto;
     text-align: center;
-    background: grey;
+    background: darkgrey;
     color: green;
 }
 .check_3{
@@ -75,7 +99,7 @@
     display: table-cell;
     vertical-align:auto;
     text-align: center;
-    background: grey;
+    background: darkgrey;
     color: red;
 }
 .check_4{
@@ -83,7 +107,7 @@
     display: table-cell;
     vertical-align:auto;
     text-align: center;
-    background: grey;
+    background: darkgrey;
     color: purple;
 }
 .detonated{

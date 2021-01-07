@@ -7,22 +7,36 @@
     <link rel="stylesheet" href="https://pro.fontawesome.com/releases/v5.10.0/css/all.css" integrity="sha384-AYmEC3Yw5cVb3ZcuHtOA93w35dYTsvhLPVnYs9eStHfGJvOvKxVfELGroGkvsg+p" crossorigin="anonymous"/>
 </head>
 <body oncontextmenu="return false">
+
+    <!--Navbar-->
+
     <div class="navbar">
-        <div class="github">
-            <a style="color: white" class = "fab fa-github-square" href="https://github.com/Mattli8312"></a>
+        <div id="options" class = "fas fa-cog">
+            <ul>
+                <li onclick = "new_game(10,10,10)">easy</li>
+                <li onclick = "new_game(30,15,15)">medium</li>
+                <li onclick = "new_game(50,20,20)">hard</li>
+                <li>custom</li>
+            </ul>
         </div>
         <div id="center_nav">
             <div id="bomb_count" class = "fas fa-bomb">: 10</div>
-            <div id="face" class = "fas fa-grin-alt"></div>
+            <div id="face" class = "fas fa-smile" onclick = "new_game(total_bombs,row,col)"></div>
             <div id ="clock" class = "far fa-clock">: 0</div>
         </div>
-        <div id="options" onclick = "console.log(1)">
-            <div class="line"></div>
-            <div class="line"></div>
-            <div class="line"></div>
+        <div class="github">
+            <a style="color: white" class = "fab fa-github-square" href="https://github.com/Mattli8312"></a>
         </div>
     </div>
+
+    <!--game_board-->
+
     <div id="grid"></div>
-    <script src="main.js"></script>
+
+    <!--UI interactions/Game logic-->
+
+    <script src="main_code.js"></script>
+    <script src="main_app.js"></script>
+
 </body>
 </html>
