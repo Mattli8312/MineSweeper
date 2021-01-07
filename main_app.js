@@ -49,9 +49,17 @@ function new_game(bombs, r_size, c_size){
     total_bombs = bombs;
     row = r_size;
     col = c_size;
+
     tile_width  = innerHeight * 0.85 * (1/row);
-    board.style.width = tile_width * col;
-    board.style.height = innerHeight*0.85;
+    if(tile_width * col > innerWidth){
+        tile_width = innerWidth * 0.85 * (1/col);
+        board.style.width = innerWidth * 0.85;
+        board.style.height = tile_width * row;
+    }
+    else{
+        board.style.width = tile_width * col;
+        board.style.height = innerHeight*0.85;
+    }
 
     bomb_count.innerHTML = ": " + bomb_number;
     clock.innerHTML = ": " + timer;
@@ -60,6 +68,23 @@ function new_game(bombs, r_size, c_size){
     initialize_grid()
     set_bombs()
     set_tiles()
+}
+function options(){
+    if(document.getElementById('options') != undefined){
+        document.getElementById('options').setAttribute('id', 'options_open')
+    }
+    else document.getElementById('options_open').setAttribute('id', 'options')
+}
+function customize(){
+    let row_size = prompt("Enter the number of rows")
+    let col_size = prompt('Enter the number of columns')
+    let bomb_input = prompt("Enter the number of bombs")
+    if(row_size == undefined || col_size == undefined || bomb_input == undefined){
+        alert('Invalid inputs')
+    }
+    else{
+        new_game(bomb_input, row_size, col_size)
+    }
 }
 window.addEventListener('contextmenu', () => {
     bomb_count.innerHTML = bomb_number;
@@ -85,6 +110,12 @@ window.addEventListener('click', ()=> {
             break;
     }
     
+    if(game_status == 1 && document.getElementById('custom_page') != undefined){
+
+        document.querySelector('body').removeChild(document.getElementById('custom_page'))
+    
+    }
+
     document.getElementById("face").setAttribute('class', expression)
 
 })

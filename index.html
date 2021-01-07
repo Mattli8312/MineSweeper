@@ -11,12 +11,12 @@
     <!--Navbar-->
 
     <div class="navbar">
-        <div id="options" class = "fas fa-cog">
+        <div id="options" class = "fas fa-cog" onclick = "options()">
             <ul>
-                <li onclick = "new_game(10,10,10)">easy</li>
-                <li onclick = "new_game(30,15,15)">medium</li>
-                <li onclick = "new_game(50,20,20)">hard</li>
-                <li>custom</li>
+                <li id = "difficulties" onclick = "new_game(10,9,9)">beginner</li>
+                <li id = "difficulties" onclick = "new_game(30,16,16)">intermediate</li>
+                <li id = "difficulties" onclick = "new_game(99,16,30)">expert</li>
+                <li id = "customizer" onclick = "customize()">Custom</li>
             </ul>
         </div>
         <div id="center_nav">

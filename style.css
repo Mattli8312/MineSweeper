@@ -13,7 +13,7 @@
     align-items: center;
     padding: 0.5em;
     width: 100%;
-    background: navy;
+    background: #ce2029;
 }
 #center_nav{
     display: flex;
@@ -32,6 +32,7 @@
     margin: 0 0.5em 0 0.5em;
     background: grey;
     border-radius: 5px;
+    cursor: pointer;
 }
 .line{
     background:white;
@@ -47,28 +48,29 @@
     margin: auto;
     justify-content: space-around;
 }
-#options{
+#options, #options_open{
     color: white;
-}
-#options:hover{
-    color: red;
+    cursor: pointer;
 }
 #options ul{
+    display: none;
+}
+#options_open ul{
     position: absolute;
-    background: navy;
+    background: #ce2029;
     list-style: none;
     left: 0;
     z-index: 5;
 }
-#options li{
-    border-radius: 0.5em;
-    padding: 0.5em;
+#difficulties, #customizer{
+    cursor: pointer;
+    padding: 1em;
     color: white;
-    margin: 0.5em;
     font-size: 0.7em;
     transition: all 0.2s ease-in;
 }
-#options li:hover{
+#difficulties:hover, #customizer:hover{
+    border-radius: 0.5em;
     background: white;
     color: black;
 }

@@ -10,6 +10,11 @@ function set_bombs(){
     }
     for(var i = 0; i < bomb_number; i++){
 
+        if(!locations.length){
+
+            break
+
+        }
         let a = Math.floor(Math.random()*(locations.length-1))
 
         let x = locations[a][0], y = locations[a][1];
