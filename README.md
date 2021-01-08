@@ -18,3 +18,13 @@ main_app.js is mainly responsible for user interaction and setting up the game b
 * ('click'): same implementation as 'dblclick'
 * ('contextmenu'): updates bomb counter
 * ('setInterval'): for timer  
+## main_code.js
+main_code.js is responsible for the game logic that minesweeper uses.
+### Functions
+* set_bombs(): Finds x number of unique locations on the grid and places bombs there, where x is the predetermined total number of mines.
+* detonate_bombs(i,j): When the user selects a tile containing a bomb, this function will set off all the other bombs to be displayed on the board.
+* count_neighboring_bombs(i,j): For the tile selected, it will check all eight adjacent tiles and calculate the sum of those tiles containing mines.
+* collect_tile(i,j): This function uses Depth-First-Search. Specifically, I used a stack to go through all adjacent tiles containing zeroes and ones. If a tile has a zero, it adds on all adjacent neighbors to the stack and if a tile has a number, it will remove from the stack.
+* clear_tile(i,j): When a tile has been flagged for adjacent mines, if the location of the flags is correct, it will call collect_tile's function to clear all adjacent regions.
+* set_tiles(): Goes through each cell in the grid and counts number of neighboring bombs and sets that tile's value to that quantity.
+* add_empty_tile(i,j): Used for initializing the grid.
