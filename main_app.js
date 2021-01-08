@@ -80,7 +80,13 @@ function customize(){
     let col_size = prompt('Enter the number of columns')
     let bomb_input = prompt("Enter the number of bombs")
     if(row_size == undefined || col_size == undefined || bomb_input == undefined){
-        alert('Invalid inputs')
+        alert('Invalid input(s)')
+    }
+    else if(row_size < 1 || col_size < 1 || bomb_input < 1){
+        alert('Input(s) not large enough')
+    }
+    else if(isNaN(row_size) || isNaN(col_size) || isNaN(bomb_input)){
+        alert('Must enter integers')
     }
     else{
         new_game(bomb_input, row_size, col_size)
@@ -143,7 +149,7 @@ window.addEventListener('dblclick', ()=> {
     document.getElementById("face").setAttribute('class', expression)
 
 })
-
+//Default settings
 new_game(10,10,10)
 
 //Clock
