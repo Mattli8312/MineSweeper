@@ -70,7 +70,7 @@ function detonate_bombs(i,j){
 
                 let img = tile.childNodes;
 
-                img[0].src = "Images/Bomb.png"
+                img[0].src = "Images/bomb.png"
             }
         }
     }
