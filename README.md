@@ -4,6 +4,8 @@ MineSweeper is an incredible puzzle game developed in the 1960s across many comp
 which houses mines in certain unknown areas. Surrounding these unknown locations are tiles that indicate how many mines are adjacent to them. Each tile has eight adjacent cells and the user must use these tiles to determine which tiles are hiding mines. 
 ## Implementation
 I implemented this game using HTML/CSS (with additional bootstrap functions) and JavaScript (no libraries). You can check out this MineSweeper clone by using this link (https://mattli8312.github.io/MineSweeper/.), or you can clone this repo and run the files on a local browser. 
+## AI Algorithm:
+I implemented a Heuristic Algorithm which calculates the probability of a tile being a mine. This Algorithm has many drawbacks, however for a map with a smaller density of mines, this algorithm is very effective. To use this, you can simply click the tools icon and click AI. This should run the algorithm in real time for you to See!
 ## main_app.js
 main_app.js is mainly responsible for user interaction and setting up the game board. 
 ### Functions
