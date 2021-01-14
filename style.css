@@ -62,14 +62,14 @@
     left: 0;
     z-index: 5;
 }
-#difficulties, #customizer{
+#difficulties, #customizer, #AI{
     cursor: pointer;
     padding: 1em;
     color: white;
     font-size: 0.7em;
     transition: all 0.2s ease-in;
 }
-#difficulties:hover, #customizer:hover{
+#difficulties:hover, #customizer:hover, #AI:hover{
     border-radius: 0.5em;
     background: white;
     color: black;
@@ -110,7 +110,23 @@
     vertical-align:auto;
     text-align: center;
     background: darkgrey;
-    color: purple;
+    color: navy;
+}
+.check_5{
+    font-family: Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif;
+    display: table-cell;
+    vertical-align:auto;
+    text-align: center;
+    background: darkgrey;
+    color: darkred;
+}
+.check_6{
+    font-family: Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif;
+    display: table-cell;
+    vertical-align:auto;
+    text-align: center;
+    background: darkgrey;
+    color: cyan;
 }
 .detonated{
     background: grey;

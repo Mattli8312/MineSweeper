@@ -17,6 +17,7 @@
                 <li id = "difficulties" onclick = "new_game(30,16,16)">intermediate</li>
                 <li id = "difficulties" onclick = "new_game(99,16,30)">expert</li>
                 <li id = "customizer" onclick = "customize()">Custom</li>
+                <li id = "AI" onclick = "AI_turn = true,  game_status = 1">AI</li>
             </ul>
         </div>
         <div id="center_nav">
@@ -34,7 +35,7 @@
     <div id="grid"></div>
 
     <!--UI interactions/Game logic-->
-
+    <script src="AI.js"></script>
     <script src="main_code.js"></script>
     <script src="main_app.js"></script>
 

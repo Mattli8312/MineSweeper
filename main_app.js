@@ -6,6 +6,7 @@ let bomb_number, timer;
 let total_bombs;
 let row, col;
 let tile_width;
+let AI_turn = false;
 //game_status: 0 if not begun, 1 if playing, 2 if won, 3 if lost
 let game_status;
 
@@ -49,11 +50,13 @@ function new_game(bombs, r_size, c_size){
     total_bombs = bombs;
     row = r_size;
     col = c_size;
+    numbered_tiles = [];
+    AI_turn = false;
 
     tile_width  = innerHeight * 0.85 * (1/row);
     if(tile_width * col > innerWidth){
-        tile_width = innerWidth * 0.85 * (1/col);
-        board.style.width = innerWidth * 0.85;
+        tile_width = innerWidth  * (1/col);
+        board.style.width = innerWidth ;
         board.style.height = tile_width * row;
     }
     else{
@@ -158,7 +161,16 @@ setInterval(function(){
         timer++
         clock.innerHTML = ": " + timer;
     }
+    if(game_status == 2){
+        document.getElementById('face').setAttribute('class', "fas fa-grin-beam")
+    }
     if(document.getElementById("face").getAttribute('class') == "fas fa-surprise"){
         document.getElementById("face").setAttribute('class', "fas fa-smile")
     }
 }, 1000)
+//AI
+setInterval(function(){
+    if(AI_turn && game_status == 1){
+        AI()
+    }
+}, 200)

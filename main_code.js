@@ -138,8 +138,13 @@ function collect_tiles(i,j){
                     }
                 }
             }
+            else{
+                numbered_tiles.push(stack[stack.length-1])
+            }
         }
-        else stack.pop();
+        else {
+            stack.pop()
+        };
     }
 }
 function clear_tile(i,j){
